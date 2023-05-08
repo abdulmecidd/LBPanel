@@ -19,6 +19,19 @@ export default {
     },
     colors: {
       blue: "#1fb6ff",
+      indigo: {
+        50: "#f2f3fc",
+        100: "#e2e4f7",
+        200: "#ccd0f1",
+        300: "#a9b1e7",
+        400: "#808ada",
+        500: "#6267cf",
+        600: "#5351c2",
+        700: "#4b44b1",
+        800: "#453d90",
+        900: "#3a3573",
+        950: "#282447",
+      },
       purple: "#7e5bef",
       pink: "#ff49db",
       orange: "#ff7849",
@@ -31,6 +44,7 @@ export default {
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
+      main: ["Quicksand", "sans-serif"],
     },
     extend: {
       spacing: {
