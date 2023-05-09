@@ -35,7 +35,7 @@ function Weather(props) {
       }
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [props.city]);
 
   let icons = null;
   switch (weatherdata?.weather[0]?.main) {
@@ -52,7 +52,6 @@ function Weather(props) {
       icons = <WiSnowWind />;
       break;
     default:
-      icons = "bilmiom";
       break;
   }
   return (
