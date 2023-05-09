@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Country from "./components/Country.jsx";
+import Weather from "./components/Weather.jsx";
 import "./App.css";
 import axios from "axios";
 
 function App() {
-  const [userCountry, setuserCountry] = useState("");
+  const [userLocation, setuserLocation] = useState("");
   const [flag, setFlag] = useState("");
 
   useEffect(() => {
@@ -12,7 +13,7 @@ function App() {
       const { latitude, longitude } = location.coords;
       const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
       const response = await axios.get(url);
-      setuserCountry(response.data.address.country);
+      setuserLocation(response.data);
       setFlag(response.data.address.country_code);
     });
   }, []);
@@ -21,9 +22,11 @@ function App() {
     <>
       <Country
         flag={`https://www.countryflagicons.com/FLAT/64/${flag.toUpperCase()}.png`}
-        country={userCountry}
+        country={userLocation?.address?.province}
       />
-      <div className="container"></div>
+      <div className="grid gap-8 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 p-sm">
+        <Weather city={userLocation?.address?.province} />
+      </div>
     </>
   );
 }
