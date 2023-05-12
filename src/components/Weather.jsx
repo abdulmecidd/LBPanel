@@ -26,7 +26,7 @@ function Weather(props) {
         console.log(error);
       }
     };
-
+    fetchData();
     const interval = setInterval(() => {
       try {
         fetchData();

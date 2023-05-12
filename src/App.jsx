@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Country from "./components/Country.jsx";
 import Weather from "./components/Weather.jsx";
+import Currencies from "./components/Currencies.jsx";
 import "./App.css";
 import axios from "axios";
 
@@ -22,10 +23,11 @@ function App() {
     <>
       <Country
         flag={`https://www.countryflagicons.com/FLAT/64/${flag.toUpperCase()}.png`}
-        country={userLocation?.address?.province}
+        country={userLocation?.address?.country}
       />
-      <div className="grid gap-8 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 p-sm">
+      <div className="grid gap-8 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 p-sm">
         <Weather city={userLocation?.address?.province} />
+        <Currencies />
       </div>
     </>
   );
