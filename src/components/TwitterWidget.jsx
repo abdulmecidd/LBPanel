@@ -1,5 +1,11 @@
+import Card from "./main_elements/Card";
+
 const TwitterWidget = () => {
-  return <></>;
+  return (
+    <>
+      <Card>Twitter Widget</Card>
+    </>
+  );
 };
 
 export default TwitterWidget;

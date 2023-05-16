@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import Country from "./components/Country.jsx";
 import "./App.css";
 import axios from "axios";
+import BorsaIstanbul from "./components/BorsaIstanbul.jsx";
+import Weather from "./components/Weather.jsx";
+import TwitterWidget from "./components/TwitterWidget.jsx";
+import PrayingTimes from "./components/PrayingTimes.jsx";
+import News from "./components/News.jsx";
+import FlickerWidget from "./components/FlickerWidget.jsx";
+import Currencies from "./components/Currencies.jsx";
 
 function App() {
   const [userCountry, setuserCountry] = useState("");
@@ -23,7 +30,15 @@ function App() {
         flag={`https://www.countryflagicons.com/FLAT/64/${flag.toUpperCase()}.png`}
         country={userCountry}
       />
-      <div className="container"></div>
+      <div className="grid container m-4">
+        <Weather />
+        <Currencies />
+        <PrayingTimes />
+        <News />
+        <FlickerWidget />
+        <TwitterWidget />
+        <BorsaIstanbul />
+      </div>
     </>
   );
 }

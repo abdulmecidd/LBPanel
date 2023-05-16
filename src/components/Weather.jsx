@@ -1,5 +1,11 @@
+import Card from "./main_elements/Card";
+
 const Weather = () => {
-  return <></>;
+  return (
+    <>
+      <Card />
+    </>
+  );
 };
 
 export default Weather;

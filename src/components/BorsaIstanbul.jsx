@@ -1,5 +1,11 @@
+import Card from "./main_elements/Card";
+
 const BorsaIstanbul = () => {
-  return <></>;
+  return (
+    <>
+      <Card>Borsa Istanbul</Card>
+    </>
+  );
 };
 
 export default BorsaIstanbul;
