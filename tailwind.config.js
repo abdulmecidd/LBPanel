@@ -19,6 +19,7 @@ export default {
     },
     colors: {
       blue: "#1fb6ff",
+      text: "#080808",
       indigo: {
         50: "#f2f3fc",
         100: "#e2e4f7",
@@ -32,6 +33,19 @@ export default {
         900: "#3a3573",
         950: "#282447",
       },
+      "aquamarine-blue": {
+        50: "#effcfc",
+        100: "#d7f6f5",
+        200: "#b3edee",
+        300: "#77dcdf",
+        400: "#44c6cc",
+        500: "#28aab2",
+        600: "#248a96",
+        700: "#23707b",
+        800: "#255c65",
+        900: "#234c56",
+        950: "#12333a",
+      },
       purple: "#7e5bef",
       pink: "#ff49db",
       orange: "#ff7849",
@@ -44,7 +58,7 @@ export default {
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
-      main: ["Quicksand", "sans-serif"],
+      main: ["Be Vietnam Pro", "sans-serif"],
     },
     extend: {
       spacing: {

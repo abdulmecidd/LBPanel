@@ -1,7 +1,7 @@
 const Card = (props) => {
   return (
     <>
-      <div className="grid-cols-4 sm:grid-cols-1 md:grid-cols-2 h-auto w-auto">
+      <div className="h-auto w-auto bg-[#ffff] font-main rounded-md">
         {props.children}
       </div>
     </>

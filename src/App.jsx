@@ -30,7 +30,7 @@ function App() {
         flag={`https://www.countryflagicons.com/FLAT/64/${flag.toUpperCase()}.png`}
         country={userCountry}
       />
-      <div className="grid container m-4">
+      <div className="grid container gap-4 m-auto grid-cols-4 sm:grid-cols-1 md:grid-cols-2">
         <Weather />
         <Currencies />
         <PrayingTimes />
