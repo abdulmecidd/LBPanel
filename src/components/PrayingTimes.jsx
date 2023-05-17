@@ -7,10 +7,10 @@ const PrayingTimes = () => {
   return (
     <>
       <Card>
-        <header className="flex gap-2 p-[1rem] text-rose-of-sharon-50 items-center rounded-t-xl bg-gradient-to-t from-rose-of-sharon-400 to-rose-of-sharon-600">
+        <header className="flex gap-2 p-[1rem] text-[white] items-center rounded-t-xl bg-gradient-to-t from-rose-of-sharon-400 to-rose-of-sharon-600">
           <FaMosque className="h-12 w-12 mr-2 text-[]" />
           <div className="">
-            <h1 className="text-4xl font-semibold text-[]">Praying Times</h1>
+            <h1 className="text-4xl font-semibold">Praying Times</h1>
             <Dropdown>
               <option>Uskudar</option>
               <option>Kartal</option>

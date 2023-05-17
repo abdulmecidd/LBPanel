@@ -32,12 +32,12 @@ function App() {
       />
       <div className="flex flex-wrap sm:flex-col md:flex-row xl:flex-row container gap-4 m-auto grid-cols-4 sm:grid-cols-1 md:grid-cols-2">
         <Weather />
-        <Currencies />
-        <PrayingTimes />
         <News />
+        <Currencies />
+        <BorsaIstanbul />
+        <PrayingTimes />
         <FlickerWidget />
         <TwitterWidget />
-        <BorsaIstanbul />
       </div>
     </>
   );
