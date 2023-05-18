@@ -5,12 +5,12 @@ const TwitterFeed = ({ name, screen_name, url, profileImg, createdAt }) => {
         <div className="flex items-center gap-2">
           <div className="">
             <img
-              className="rounded-full w-12"
+              className="rounded-full w-12 sm:w-6"
               src="https://i.pravatar.cc/300"
             ></img>
           </div>
           <div className="flex items-baseline gap-1">
-            <h1 className="font-semibold">Amazon AWS</h1>
+            <h1 className="sm:text-[0.8rem] font-semibold">Amazon AWS</h1>
             <p className="text-[0.8rem] text-gray">@amazonaws</p>
           </div>
         </div>
