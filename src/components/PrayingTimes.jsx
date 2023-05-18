@@ -11,16 +11,18 @@ const PrayingTimes = () => {
           <FaMosque className="h-12 w-12 mr-2 text-[]" />
           <div className="">
             <h1 className="text-4xl font-semibold">Praying Times</h1>
-            <Dropdown>
-              <option>Uskudar</option>
-              <option>Kartal</option>
-              <option>Maltepe</option>
-            </Dropdown>
-          </div>
-          <div className="bg-[white] rounded-md ml-auto h-8 w-12 items-center justify-center flex">
-            <p className="font-semibold text-[80%] text-rose-of-sharon-600">
-              12:59
-            </p>
+            <div className="flex gap-4 mt-2 items-center">
+              <Dropdown>
+                <option>Uskudar</option>
+                <option>Kartal</option>
+                <option>Maltepe</option>
+              </Dropdown>
+              <div className="bg-[white] rounded-md h-8 w-12 items-center justify-center flex">
+                <p className="font-semibold text-[80%] text-rose-of-sharon-600">
+                  12:59
+                </p>
+              </div>
+            </div>
           </div>
         </header>
         <section className="text-text ">
