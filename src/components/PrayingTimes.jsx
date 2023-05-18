@@ -1,6 +1,6 @@
 import Card from "./main_elements/Card";
 import { FaMosque } from "react-icons/fa";
-import Prayings from "./main_elements/Prayings";
+import Prayings from "./main_elements/Praying/Prayings";
 import Dropdown from "./main_elements/Dropdown";
 
 const PrayingTimes = () => {

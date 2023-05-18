@@ -1,10 +1,8 @@
-import BistIndices from "./main_elements/BistIndices";
+import BistIndices from "./main_elements/Bist/BistIndices";
 import Button from "./main_elements/Button";
 import Card from "./main_elements/Card";
 
 const BorsaIstanbul = () => {
-  const data = [{ name: "Page A", uv: 1000, pv: 2400, amt: 1500 }];
-
   return (
     <>
       <Card>

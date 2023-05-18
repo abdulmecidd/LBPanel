@@ -1,7 +1,7 @@
 import Card from "./main_elements/Card";
-import Topics from "./main_elements/Topics";
-import TrendTopics from "./main_elements/TremdTopics";
-import TwitterFeed from "./main_elements/TwitterFeed";
+import Topics from "./main_elements/Twitter/Topics";
+import TrendTopics from "./main_elements/Twitter/TrendTopics";
+import TwitterFeed from "./main_elements/Twitter/TwitterFeed";
 const TwitterWidget = () => {
   return (
     <>

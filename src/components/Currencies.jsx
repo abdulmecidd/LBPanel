@@ -1,5 +1,5 @@
 import Card from "./main_elements/Card";
-import Currency from "./main_elements/Currency";
+import Currency from "./main_elements/Currencies/Currency";
 
 const Currencies = () => {
   return (
