@@ -12,11 +12,7 @@ const Weather = (props) => {
               <h1 className="font-main font-extralight text-xl">Sunny</h1>
               <h2 className="text-6xl font-light">20°</h2>
               <h2 className="text-[1rem] font-light">
-                <Dropdown>
-                  <option>Uskudar</option>
-                  <option>Kadikoy</option>
-                  <option>Fatih</option>
-                </Dropdown>
+                <p> Kartal </p>
               </h2>
             </div>
             <WiDaySunny className="text-[8rem] text-blue-100" />

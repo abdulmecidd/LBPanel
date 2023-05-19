@@ -9,7 +9,7 @@ const FlickerWidget = () => {
         <header className="p-[1rem] bg-gradient-to-t from-indigo-500 to-indigo-700 text-[white] rounded-t-md">
           <h1 className="text-4xl font-semibold">Trend Images</h1>
           <SearchInput
-            placeholder="Search your interest..."
+            placeholder="Dogs, cute cats..."
             className="pl-[0.4rem] rounded-full w-full text-gray mt-2"
           />
         </header>

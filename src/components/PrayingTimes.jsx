@@ -12,11 +12,7 @@ const PrayingTimes = () => {
           <div className="">
             <h1 className="text-4xl font-semibold">Praying Times</h1>
             <div className="flex gap-4 mt-2 items-center">
-              <Dropdown>
-                <option>Uskudar</option>
-                <option>Kartal</option>
-                <option>Maltepe</option>
-              </Dropdown>
+              <p>Kartal</p>
               <div className="bg-[white] rounded-md h-8 w-12 items-center justify-center flex">
                 <p className="font-semibold text-[80%] text-rose-of-sharon-600">
                   12:59

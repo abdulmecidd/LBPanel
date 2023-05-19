@@ -1,6 +1,6 @@
 import Card from "./main_elements/Card";
 import SearchInput from "./main_elements/SearchInput";
-import NewsSection from "./main_elements/NewsSection";
+import NewsSection from "./main_elements/News/NewsSection";
 import Dropdown from "./main_elements/Dropdown";
 const News = () => {
   return (

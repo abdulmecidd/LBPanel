@@ -21,6 +21,7 @@ function App() {
       const response = await axios.get(url);
       setuserCountry(response.data.address.country);
       setFlag(response.data.address.country_code);
+      console.log(response);
     });
   }, []);
 
@@ -30,14 +31,14 @@ function App() {
         flag={`https://www.countryflagicons.com/FLAT/64/${flag.toUpperCase()}.png`}
         country={userCountry}
       />
-      <div className="flex flex-wrap sm:flex-col md:flex-row xl:flex-row container gap-4 m-auto grid-cols-4 sm:grid-cols-1 md:grid-cols-2">
+      <div className="mb-4 flex flex-wrap sm:flex-col md:flex-row gap-4 md:gap-4 xl:flex-row container xl:gap-8 m-auto grid-cols-4 sm:grid-cols-1 md:grid-cols-2">
         <Weather />
         <News />
+        <PrayingTimes />
         <Currencies />
         <BorsaIstanbul />
-        <PrayingTimes />
-        <FlickerWidget />
         <TwitterWidget />
+        <FlickerWidget />
       </div>
     </>
   );
