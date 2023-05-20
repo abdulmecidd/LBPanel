@@ -16,7 +16,7 @@ const TwitterFeed = ({ name, screen_name, url, profileImg, createdAt }) => {
         </div>
         <div className="h-auto">
           <p className="break-all">
-            Tweetaasdasdsadadasdasdaasdasdsdasdasdadasd
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a lacinia mi, in accumsan ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus
           </p>
           <p className="text-[0.6rem] text-gray">02.10.2022</p>
         </div>
