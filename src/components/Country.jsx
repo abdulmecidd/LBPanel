@@ -3,41 +3,30 @@ import { useEffect, useState, useContext } from "react";
 import Dropdown from "./main_elements/Dropdown";
 import Loading from "./main_elements/LoadingAnimation/Loading";
 import { Context } from "../Context";
+import { STATE_DATA_API } from "../api";
 
 const Country = (props) => {
-  const { userCity, status } = useContext(Context);
+  const { flag, status } = useContext(Context);
   const [districts, setDistricts] = useState([]);
 
   useEffect(() => {
     async function fetchTown() {
-      const options = {
-        method: "GET",
-        url: "https://countries-states-cities-dataset.p.rapidapi.com/list-countries-cities",
-        headers: {
-          "X-RapidAPI-Key":
-            "b207f9be37msh5d067842d345311p1fb09ejsn0bbf0e6d4207",
-          "X-RapidAPI-Host": "countries-states-cities-dataset.p.rapidapi.com",
-        },
-      };
       try {
-        const response = await axios.get(
-          "https://wft-geo-db.p.rapidapi.com/v1/geo/countries/TR/places",
-          {
-            method: "GET",
-            headers: {
-              "X-RapidAPI-Key":
-                "269d13724cmsh601f5a14755deabp1bd9adjsn2e661f2dc645",
-              "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
-            },
-          }
-        );
-        setDistricts(data);
+        let requestOptions = {
+          method: "GET",
+          url: `https://api.countrystatecity.in/v1/countries/${flag.toUpperCase()}/states`,
+          headers: {
+            "X-CSCAPI-KEY": STATE_DATA_API,
+          },
+        };
+        const response = await axios(requestOptions);
+        setDistricts(response.data);
       } catch (err) {
         console.log(err);
       }
     }
     fetchTown();
-  }, [userCity]);
+  }, [props.city]);
   return (
     <>
       <div className="flex items-center justify-center p-xl bg-[white] mb-4 font-main gap-2">
