@@ -6,10 +6,13 @@ import { Context } from "../Context";
 import { STATE_DATA_API } from "../api";
 
 const Country = (props) => {
-  const { flag, status } = useContext(Context);
+  const { userCity, flag, status } = useContext(Context);
   const [districts, setDistricts] = useState([]);
 
   useEffect(() => {
+    if (!userCity) {
+      return;
+    }
     async function fetchTown() {
       try {
         let requestOptions = {
@@ -26,7 +29,7 @@ const Country = (props) => {
       }
     }
     fetchTown();
-  }, [props.city]);
+  }, [userCity]);
   return (
     <>
       <div className="flex items-center justify-center p-xl bg-[white] mb-4 font-main gap-2">

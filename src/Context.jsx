@@ -16,7 +16,7 @@ export const GlobalProvider = (props) => {
         const response = await axios.get(url);
         const { country, country_code, province } = response.data.address;
         setuserCountry(country);
-        setFlag(country_code);
+        setFlag(country_code.toUpperCase());
         setUserCity(province);
         setStatus(true);
       } catch (error) {

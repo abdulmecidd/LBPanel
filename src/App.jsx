@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Country
-        flag={`https://www.countryflagicons.com/FLAT/64/${flag.toUpperCase()}.png`}
+        flag={`https://www.countryflagicons.com/FLAT/64/${flag}.png`}
         country={userCountry}
         city={userCountry}
       />
