@@ -49,7 +49,7 @@ const Weather = (props) => {
     case status && weatherData.description.toLowerCase().includes("broken"):
       weatherIcon = <WiDayCloudy className="text-[8rem] text-blue-100" />;
       break;
-    case status && weatherData.description.toLowerCase().includes("sun"):
+    case status && weatherData.description.toLowerCase().includes("sky"):
       weatherIcon = <WiDaySunny className="text-[8rem] text-blue-100" />;
       break;
     case status && weatherData.description.toLowerCase().includes("rain"):
@@ -57,6 +57,10 @@ const Weather = (props) => {
       break;
     case status && weatherData.description.toLowerCase().includes("snow"):
       weatherIcon = <WiSnow className="text-[8rem] text-blue-100" />;
+      break;
+    case status && weatherData.description.toLowerCase().includes("cloud"):
+      weatherIcon = <WiCloud className="text-[8rem] text-blue-100" />;
+      break;
     default:
       weatherIcon = null;
   }

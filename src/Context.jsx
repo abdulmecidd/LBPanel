@@ -23,7 +23,11 @@ export const GlobalProvider = (props) => {
         console.log(error);
       }
     });
-  }, [userCity]);
+  }, []);
+
+  const updateUserCity = (city) => {
+    setUserCity(city);
+  };
 
   return (
     <Context.Provider
@@ -32,6 +36,7 @@ export const GlobalProvider = (props) => {
         userCountry,
         flag,
         status,
+        updateUserCity,
       }}
     >
       {props.children}

@@ -30,6 +30,7 @@ const Country = (props) => {
     }
     fetchTown();
   }, [userCity]);
+
   return (
     <>
       <div className="flex items-center justify-center p-xl bg-[white] mb-4 font-main gap-2">
@@ -43,7 +44,7 @@ const Country = (props) => {
               {districts.map((district, index) => (
                 <option key={index}>{district.name}</option>
               ))}
-            </Dropdown>{" "}
+            </Dropdown>
           </>
         ) : (
           <Loading />
