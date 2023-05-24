@@ -1,9 +1,12 @@
 import Card from "./main_elements/Card";
 import { FaMosque } from "react-icons/fa";
 import Prayings from "./main_elements/Praying/Prayings";
-import Dropdown from "./main_elements/Dropdown";
+import { useContext } from "react";
+import { Context } from "../Context";
 
 const PrayingTimes = () => {
+  const { userCity, updateUserCity } = useContext(Context);
+
   return (
     <>
       <Card>
@@ -12,7 +15,7 @@ const PrayingTimes = () => {
           <div className="">
             <h1 className="text-4xl font-semibold">Praying Times</h1>
             <div className="flex gap-4 mt-2 items-center">
-              <p>Kartal</p>
+              <p>{userCity}</p>
               <div className="bg-[white] rounded-md h-8 w-12 items-center justify-center flex">
                 <p className="font-semibold text-[80%] text-rose-of-sharon-600">
                   12:59

@@ -5,6 +5,7 @@ import {
   WiSnow,
   WiDaySunny,
   WiDayCloudy,
+  WiThunderstorm,
 } from "react-icons/wi";
 import Dropdown from "./main_elements/Dropdown";
 import { WEATHER_DATA_API } from "../api";
@@ -60,6 +61,9 @@ const Weather = (props) => {
       break;
     case status && weatherData.description.toLowerCase().includes("cloud"):
       weatherIcon = <WiCloud className="text-[8rem] text-blue-100" />;
+      break;
+    case status && weatherData.description.toLowerCase().includes("thunder"):
+      weatherIcon = <WiThunderstorm className="text-[8rem] text-blue-100" />;
       break;
     default:
       weatherIcon = null;
