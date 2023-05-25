@@ -1,5 +1,3 @@
-import { FiChevronRight } from "react-icons/fi";
-
 const NewsSection = ({
   title,
   description,
@@ -15,14 +13,17 @@ const NewsSection = ({
         <div className="">
           <img
             className="h-12 w-12 rounded-md"
-            src="https://placehold.co/600x400"
+            src={urlToImage ? `${urlToImage}` : "https://placehold.co/600x400"}
           ></img>
         </div>
         <div className="">
-          <h1 className="font-bold">{title}</h1>
-          <p className="text-[1rem] font-extralight">{description}</p>
+          <a target="_blank" href={url} className="font-bold hover:underline">
+            {title && title.slice(0, 50)}...
+          </a>
+          <p className="text-[1rem] font-extralight">
+            {description && description.slice(0, 40)}...
+          </p>
         </div>
-        <FiChevronRight className="text-6xl text-red-400" />
       </div>
     </>
   );

@@ -2,9 +2,59 @@ import Card from "./main_elements/Card";
 import SearchInput from "./main_elements/SearchInput";
 import NewsSection from "./main_elements/News/NewsSection";
 import { Context } from "../Context";
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { NEWS_DATA_API } from "../api";
+
 const News = () => {
-  const { userCountry } = useContext(Context);
+  const { userCountry, flag } = useContext(Context);
+  const [news, setNews] = useState([]);
+  const [page, setPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const containerRef = useRef(null);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 1800000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [userCountry]);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `https://newsapi.org/v2/top-headlines?country=${flag}&page=${page}&pageSize=${6}&apiKey=${NEWS_DATA_API}`
+      );
+      const data = response.data.articles;
+      setNews((prev) => [...prev, ...data]);
+      setPage(() => page + 1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleScroll = () => {
+    const container = containerRef.current;
+    if (
+      container.scrollTop + container.clientHeight >= container.scrollHeight &&
+      loading
+    ) {
+      fetchData();
+    }
+  };
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+  };
   return (
     <>
       <Card>
@@ -18,27 +68,35 @@ const News = () => {
             type="text"
             className="rounded-md p-[0.1rem] pl-[0.2rem] w-full text-[0.8rem] text-gray-dark font-semibold"
             placeholder="Search..."
+            onChange={handleSearch}
           />
         </header>
-        <section className="overflow-y-auto max-h-64">
-          <NewsSection
-            title="Lorem Ipsum"
-            description="A federal judge ruled Wednesday that the U.S. The …"
-            publishedAt="2023-05-17"
-            author="cnbc.com"
-          />
-          <NewsSection
-            title="Lorem Ipsum"
-            description="A federal judge ruled Wednesday that the U.S. The …"
-            publishedAt="2023-05-17"
-            author="cnbc.com"
-          />
-          <NewsSection
-            title="Lorem Ipsum"
-            description="A federal judge ruled Wednesday that the U.S. The …"
-            publishedAt="2023-05-17"
-            author="cnbc.com"
-          />
+        <section
+          className="overflow-y-auto max-h-64"
+          onScroll={handleScroll}
+          ref={containerRef}
+        >
+          {news.filter((search) => {
+            if (searchTerm === "") {
+              news.map((e, index) => (
+                <NewsSection
+                  key={index}
+                  title={e.title}
+                  description={e.description}
+                  publishedAt={e.publishedAt}
+                  author="cnbc.com"
+                  urlToImage={e.urlToImage}
+                  url={e.url}
+                />
+              ));
+            } else if (
+              search.title.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return search;
+            } else {
+              return console.log("bişe yok");
+            }
+          })}
         </section>
       </Card>
     </>
