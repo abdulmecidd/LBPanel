@@ -1,15 +1,17 @@
 import Card from "./main_elements/Card";
 import SearchInput from "./main_elements/SearchInput";
 import NewsSection from "./main_elements/News/NewsSection";
-import Dropdown from "./main_elements/Dropdown";
+import { Context } from "../Context";
+import { useContext } from "react";
 const News = () => {
+  const { userCountry } = useContext(Context);
   return (
     <>
       <Card>
         <header className="text-[white] rounded-t-md p-[1rem] bg-gradient-to-t from-red-300 to-red-400">
           <div className="flex items-end gap-1">
             <h1 className="text-4xl font-semibold">News</h1>
-            <p className="text-[0.8rem]">from Turkey</p>
+            <p className="text-[0.8rem]">from {userCountry}</p>
           </div>
 
           <SearchInput

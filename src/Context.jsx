@@ -8,6 +8,7 @@ export const GlobalProvider = (props) => {
   const [flag, setFlag] = useState("");
   const [userCity, setUserCity] = useState("");
   const [status, setStatus] = useState(false);
+  const [time, setTime] = useState(null);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (location) => {
       try {
@@ -22,6 +23,19 @@ export const GlobalProvider = (props) => {
       } catch (error) {
         console.log(error);
       }
+      const getCurrentTime = () => {
+        const currentTime = new Date();
+        const hour = currentTime.getHours();
+        const minute = currentTime.getMinutes();
+        const period = hour >= 12 ? "PM" : "AM";
+        const formattedHour = hour % 12 || 12;
+        const time = formattedHour + ":" + minute + " " + " " + period;
+        setTime(time);
+      };
+
+      getCurrentTime();
+      const interval = setInterval(getCurrentTime, 1000);
+      return () => clearInterval(interval);
     });
   }, []);
 
@@ -37,6 +51,7 @@ export const GlobalProvider = (props) => {
         flag,
         status,
         updateUserCity,
+        time,
       }}
     >
       {props.children}
