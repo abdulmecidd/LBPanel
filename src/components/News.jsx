@@ -41,6 +41,16 @@ const News = () => {
     }
   };
 
+  const filteredNews = news.filter((e) => {
+    if (!searchTerm) {
+      return true;
+    } else {
+      const lowerCaseTitle = e.title.toLowerCase();
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
+      return lowerCaseTitle.includes(lowerCaseSearchTerm);
+    }
+  });
+
   const handleScroll = () => {
     const container = containerRef.current;
     if (
@@ -76,27 +86,16 @@ const News = () => {
           onScroll={handleScroll}
           ref={containerRef}
         >
-          {news.filter((search) => {
-            if (searchTerm === "") {
-              news.map((e, index) => (
-                <NewsSection
-                  key={index}
-                  title={e.title}
-                  description={e.description}
-                  publishedAt={e.publishedAt}
-                  author="cnbc.com"
-                  urlToImage={e.urlToImage}
-                  url={e.url}
-                />
-              ));
-            } else if (
-              search.title.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return search;
-            } else {
-              return console.log("bişe yok");
-            }
-          })}
+          {filteredNews.map((e, index) => (
+            <NewsSection
+              key={index}
+              title={e.title}
+              description={e.description}
+              publishedAt={e.publishedAt}
+              urlToImage={e.urlToImage}
+              url={e.url}
+            />
+          ))}
         </section>
       </Card>
     </>
