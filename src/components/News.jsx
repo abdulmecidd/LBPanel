@@ -13,18 +13,9 @@ const News = () => {
   const [searchTerm, setSearchTerm] = useState(null);
   const [loading, setLoading] = useState(true);
   const containerRef = useRef(null);
-  const timeoutRef = useRef(null);
 
   useEffect(() => {
     fetchData();
-
-    const interval = setInterval(() => {
-      fetchData();
-    }, 1800000);
-
-    return () => {
-      clearInterval(interval);
-    };
   }, [userCountry]);
 
   const fetchData = async () => {
@@ -68,7 +59,7 @@ const News = () => {
   return (
     <>
       <Card>
-        <header className="text-[white] rounded-t-md p-[1rem] bg-gradient-to-t from-red-300 to-red-400">
+        <header className="text-[white] rounded-t-md p-[1rem] bg-gradient-to-t from-red-300 to-red-400 min-w-128">
           <div className="flex items-end gap-1">
             <h1 className="text-4xl font-semibold">News</h1>
             <p className="text-[0.8rem]">from {userCountry}</p>
@@ -82,20 +73,26 @@ const News = () => {
           />
         </header>
         <section
-          className="overflow-y-auto max-h-64"
+          className="overflow-y-auto max-h-64 min-w-[36rem]"
           onScroll={handleScroll}
           ref={containerRef}
         >
-          {filteredNews.map((e, index) => (
-            <NewsSection
-              key={index}
-              title={e.title}
-              description={e.description}
-              publishedAt={e.publishedAt}
-              urlToImage={e.urlToImage}
-              url={e.url}
-            />
-          ))}
+          {filteredNews.length === 0 ? (
+            <div className="text-md font-semibold font-main text-center ">
+              "{searchTerm}" couldn't find.
+            </div>
+          ) : (
+            filteredNews.map((e, index) => (
+              <NewsSection
+                key={index}
+                title={e.title}
+                description={e.description}
+                publishedAt={e.publishedAt}
+                urlToImage={e.urlToImage}
+                url={e.url}
+              />
+            ))
+          )}
         </section>
       </Card>
     </>
