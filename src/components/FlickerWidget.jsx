@@ -12,9 +12,10 @@ const FlickerWidget = () => {
   const [modal, setModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [query, setQuery] = useState(null);
-
-  const handleModal = (img) => {
+  const [modalData, setModalData] = useState(null);
+  const handleModal = (img, data) => {
     setSelectedImage(img);
+    setModalData(data);
     setModal(true);
   };
 
@@ -41,6 +42,7 @@ const FlickerWidget = () => {
           }
         );
         setPhotos(response.data.photos);
+        console.log(photos);
       } catch (error) {
         console.log(error);
       }
@@ -65,7 +67,7 @@ const FlickerWidget = () => {
                 return (
                   <span
                     key={item.id}
-                    onClick={() => handleModal(item.src.portrait)}
+                    onClick={() => handleModal(item.src.large2x, item.alt)}
                   >
                     <Images
                       className="cursor-pointer"
@@ -82,6 +84,7 @@ const FlickerWidget = () => {
           url={selectedImage}
           enabled={modal}
           onClose={closeModal}
+          alt={modalData}
         ></ModalWindow>
       )}
     </>

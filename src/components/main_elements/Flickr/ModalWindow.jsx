@@ -1,4 +1,4 @@
-const ModalWindow = ({ enabled, url, onClose }) => {
+const ModalWindow = ({ enabled, url, onClose, alt }) => {
   return (
     <>
       <div
@@ -8,13 +8,21 @@ const ModalWindow = ({ enabled, url, onClose }) => {
         onClick={onClose}
       >
         <div className="absolute top-0 right-0 m-4 text-white font-bold cursor-pointer">
-          <span className="text-2xl text-[white]" onClick={onClose}>
+          <span
+            className="text-3xl text-[white] hover:text-[black] transition "
+            onClick={onClose}
+          >
             X
           </span>
         </div>
 
-        <div className="flex justify-center p-sm">
+        <div className="xl:flex md:flex sm:flex-col gap-4 items-center justify-center p-sm">
           <img src={url} className="w-1/2 rounded-md" alt="Modal Image" />
+          <div className="bg-[white] rounded-md font-main h-auto w-auto text-text">
+            <div className="p-sm">
+              <h1 className="font-bold text-4xl">{alt}</h1>
+            </div>
+          </div>
         </div>
       </div>
     </>
