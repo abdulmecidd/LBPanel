@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { Context } from "../../../Context";
-
 const Praying = (props) => {
   const isEnabled = props.enabled ? "bg-rose-of-sharon-100 " : "bg-[white]";
   return (
@@ -13,7 +10,7 @@ const Praying = (props) => {
           <p>{props.prayingname}</p>
         </div>
 
-        <p className="ml-auto">{props.times.toUpperCase()}</p>
+        <p className="ml-auto">{props.times}</p>
       </div>
     </>
   );
