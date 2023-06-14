@@ -42,7 +42,6 @@ const FlickerWidget = () => {
           }
         );
         setPhotos(response.data.photos);
-        console.log(photos);
       } catch (error) {
         console.log(error);
       }
@@ -61,7 +60,7 @@ const FlickerWidget = () => {
             onChange={handleQuery}
           />
         </header>
-        <section className="grid gap-2 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 p-[1rem] max-h-128 overflow-auto">
+        <section className="grid gap-2 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 p-[1rem] max-h-128 min-h-64 overflow-auto">
           {photos.length > 0
             ? photos.map((item) => {
                 return (
