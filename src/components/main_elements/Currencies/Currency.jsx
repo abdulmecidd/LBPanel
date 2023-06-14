@@ -3,19 +3,39 @@ import { useEffect, useState } from "react";
 const Currency = (props) => {
   const [previousValue, setpreviousValue] = useState("");
   const [previousChange, setPreviousChange] = useState("");
+  const [ping, setPing] = useState(false);
 
   useEffect(() => {
     if (previousChange !== props.change) {
       setPreviousChange(props.change);
+      setTimeout(() => {
+        setPing(true);
+        setTimeout(() => {
+          setPing(false);
+        }, 2000);
+      }, 0);
     }
 
     if (props.value !== previousValue) {
       setpreviousValue(props.value);
+      setTimeout(() => {
+        setPing(true);
+        setTimeout(() => {
+          setPing(false);
+        }, 2000);
+      }, 0);
     }
   }, [props.value]);
   return (
     <>
       <div className="flex items-center gap-4 mb-4">
+        {ping ? (
+          <div className="bg-dodger-blue-300 h-4 w-4 rounded-full">
+            <div className="bg-dodger-blue-400 h-4 w-4 rounded-full animate-ping"></div>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="currency font-semibold ml-2">
           <p>{props.currency}</p>
         </div>

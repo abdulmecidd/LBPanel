@@ -10,6 +10,7 @@ const Currencies = () => {
   const [EurUsdChange, setEurUsdChange] = useState("");
   const [eurPrice, setEurPrice] = useState("");
   const [eurUsdPrice, setEurUsdPrice] = useState("");
+
   useEffect(() => {
     const ws = new WebSocket("wss://nc.ciner.com.tr/sub/htfinans");
 
