@@ -24,7 +24,7 @@ const News = () => {
       const currentDate = new Date();
       setDate(currentDate.getHours() + ":" + currentDate.getMinutes());
       fetchData();
-    }, 1 * 60 * 1000);
+    }, 5 * 60 * 1000);
 
     return () => {
       clearInterval(interval);
