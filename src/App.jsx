@@ -22,8 +22,8 @@ function App() {
       />
       <div className="mb-4 flex flex-wrap sm:flex-col md:flex-row gap-4 md:gap-4 xl:flex-row container xl:gap-6 m-auto grid-cols-4 sm:grid-cols-1 md:grid-cols-2">
         <Weather />
-        <News />
         <PrayingTimes />
+        <News />
         <Currencies />
         <BorsaIstanbul />
         <TwitterWidget />
