@@ -9,7 +9,7 @@ const NewsSection = ({
 }) => {
   return (
     <>
-      <div className="flex p-[1rem] gap-4 items-center">
+      <div className="flex p-[1rem] gap-4 items-center min-w-128">
         <div className="">
           <img
             className="h-12 w-12 rounded-md"
