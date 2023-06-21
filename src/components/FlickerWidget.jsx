@@ -1,7 +1,7 @@
 import Card from "./main_elements/Card";
 import SearchInput from "./main_elements/SearchInput";
 import Images from "./main_elements/Images";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import axios from "axios";
 import { PEXELS_API } from "../api";
 import { useState } from "react";
@@ -13,6 +13,9 @@ const FlickerWidget = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [query, setQuery] = useState(null);
   const [modalData, setModalData] = useState(null);
+  const containerRef = useRef(null);
+  const [page, setPage] = useState(1);
+
   const handleModal = (img, data) => {
     setSelectedImage(img);
     setModalData(data);
@@ -34,7 +37,7 @@ const FlickerWidget = () => {
         const response = await axios.get(
           `https://api.pexels.com/v1/search?query=${
             query ? query : "popular"
-          }&per_page=16&orientation=landscape`,
+          }&page=${page}&per_page=16&orientation=landscape`,
           {
             headers: {
               Authorization: PEXELS_API,
@@ -61,7 +64,7 @@ const FlickerWidget = () => {
           />
         </header>
         <section className="grid gap-2 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 p-[1rem] max-h-128 min-h-64 overflow-auto">
-          {photos.length > 0
+          {photos && photos.length > 0
             ? photos.map((item) => {
                 return (
                   <span
@@ -75,7 +78,9 @@ const FlickerWidget = () => {
                   </span>
                 );
               })
-            : console.log("something went wrong")}
+            : console.log(
+                "Images failed to load. Please check your API endpoint."
+              )}
         </section>
       </Card>
       {modal && selectedImage && (
