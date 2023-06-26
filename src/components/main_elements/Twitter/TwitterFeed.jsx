@@ -9,7 +9,7 @@ const TwitterFeed = ({
 }) => {
   return (
     <>
-      <div className="p-[1rem] m-4 pb-xl">
+      <div className="p-[1rem] m-2 pb-xl">
         <div className="flex items-center gap-2">
           <div className="">
             <img
@@ -17,7 +17,7 @@ const TwitterFeed = ({
               src={profileImg ? `${profileImg}` : `https://i.pravatar.cc/300`}
             ></img>
           </div>
-          <div className="flex items-baseline gap-1">
+          <div className="flex items-baseline">
             <a
               className="sm:text-[0.8rem] font-semibold hover:underline cursor-pointer"
               href={`https://twitter.com/${name}`}
@@ -35,10 +35,7 @@ const TwitterFeed = ({
         <div className="h-auto xl:w-80 md:w-80">
           <p className="break-all w-64">{content}</p>
           {image_url !== null ? (
-            <img
-              className="rounded-md h-auto w-auto mt-2"
-              src={image_url}
-            ></img>
+            <img className="rounded-md h-auto w-1/2 mt-2" src={image_url}></img>
           ) : null}
         </div>
       </div>

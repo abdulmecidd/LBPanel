@@ -60,7 +60,7 @@ const BorsaIstanbul = () => {
             <MdHistory /> <p>{values.time}</p>
           </div>
         </header>
-        <section>
+        <section className="mt-4">
           <ResponsiveContainer
             width={"100%"}
             height={300}
@@ -82,6 +82,14 @@ const BorsaIstanbul = () => {
               <Bar dataKey="value" fill="#0d9488" />
             </BarChart>
           </ResponsiveContainer>
+          <div className="flex text-center justify-center gap-2 mt-4">
+            <p className="text-center font-main">
+              <span className="font-semibold">Max:</span> {values.max}
+            </p>
+            <p className="text-center font-main">
+              <span className="font-semibold">Min:</span> {values.min}
+            </p>
+          </div>
         </section>
       </Card>
     </>

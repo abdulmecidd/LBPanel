@@ -17,14 +17,14 @@ const News = () => {
   const [date, setDate] = useState(null);
   const containerRef = useRef(null);
 
+  const interval = setInterval(() => {
+    const currentDate = new Date();
+    setDate(currentDate.getHours() + ":" + currentDate.getMinutes());
+    fetchData();
+  }, 5 * 60 * 1000);
+
   useEffect(() => {
     fetchData();
-
-    const interval = setInterval(() => {
-      const currentDate = new Date();
-      setDate(currentDate.getHours() + ":" + currentDate.getMinutes());
-      fetchData();
-    }, 5 * 60 * 1000);
 
     return () => {
       clearInterval(interval);
@@ -42,7 +42,7 @@ const News = () => {
       if (page === 1) {
         setNews(data);
       } else {
-        setNews((prevNews) => [...prevNews, ...data]);
+        setNews((prevNews) => [...data, ...prevNews]);
       }
 
       setPage((prevPage) => prevPage + 1);

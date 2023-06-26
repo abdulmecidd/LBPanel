@@ -8,7 +8,7 @@ import { TWITTER_API_KEY } from "../api";
 const TwitterWidget = () => {
   const [name, setName] = useState("");
   const [data, setData] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchTweets = async () => {
       try {
@@ -30,6 +30,7 @@ const TwitterWidget = () => {
         );
         setData(response.data.results);
         setName(data[0].user.username);
+        setIsLoading(true);
       } catch (error) {
         console.log(error);
       }
@@ -60,9 +61,7 @@ const TwitterWidget = () => {
               );
             })}
           </div>
-          <div className="topics">
-            <TrendTopics />
-          </div>
+          <div className="topics">{!isLoading && <TrendTopics />}</div>
         </section>
       </Card>
     </>
