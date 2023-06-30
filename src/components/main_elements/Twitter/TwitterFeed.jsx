@@ -1,25 +1,42 @@
-const TwitterFeed = ({ name, screen_name, url, profileImg, createdAt }) => {
+const TwitterFeed = ({
+  name,
+  screen_name,
+  url,
+  profileImg,
+  createdAt,
+  content,
+  image_url,
+}) => {
   return (
     <>
-      <div className="p-[1rem]">
+      <div className="p-[1rem] m-2 pb-xl">
         <div className="flex items-center gap-2">
           <div className="">
             <img
               className="rounded-full w-12 sm:w-6"
-              src="https://i.pravatar.cc/300"
+              src={profileImg ? `${profileImg}` : `https://i.pravatar.cc/300`}
             ></img>
           </div>
-          <div className="flex items-baseline gap-1">
-            <h1 className="sm:text-[0.8rem] font-semibold">Amazon AWS</h1>
-            <p className="text-[0.8rem] text-gray">@amazonaws</p>
+          <div className="flex items-baseline">
+            <a
+              className="sm:text-[0.8rem] font-semibold hover:underline cursor-pointer"
+              href={`https://twitter.com/${name}`}
+              target="_blank"
+            >
+              {screen_name}
+            </a>
+            <p className="text-[0.8rem] text-gray">
+              <a href={url} target="_blank">
+                @{name}
+              </a>
+            </p>
           </div>
         </div>
-        <div className="h-auto">
-          <p className="break-all max-w-128 xl:w-128 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            odit aut consectetur, deserunt autem molestiae numquam.
-          </p>
-          <p className="text-[0.6rem] text-gray">02.10.2022</p>
+        <div className="h-auto xl:w-80 md:w-80">
+          <p className="break-all w-64">{content}</p>
+          {image_url !== null ? (
+            <img className="rounded-md h-auto w-1/2 mt-2" src={image_url}></img>
+          ) : null}
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
-const Images = ({ img, url }) => {
+const Images = ({ img, url, className }) => {
   return (
     <>
-      <img src={url} className="rounded-xl"></img>
+      <img src={url} className={`rounded-xl ${className}`}></img>
     </>
   );
 };

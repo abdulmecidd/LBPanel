@@ -8,6 +8,7 @@ export const GlobalProvider = (props) => {
   const [flag, setFlag] = useState("");
   const [userCity, setUserCity] = useState("");
   const [status, setStatus] = useState(false);
+  const [time, setTime] = useState(null);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (location) => {
       try {
@@ -16,14 +17,31 @@ export const GlobalProvider = (props) => {
         const response = await axios.get(url);
         const { country, country_code, province } = response.data.address;
         setuserCountry(country);
-        setFlag(country_code);
+        setFlag(country_code.toUpperCase());
         setUserCity(province);
         setStatus(true);
       } catch (error) {
         console.log(error);
       }
+      const getCurrentTime = () => {
+        const currentTime = new Date();
+        const hour = currentTime.getHours();
+        const minute = currentTime.getMinutes();
+        const period = hour >= 12 ? "PM" : "AM";
+        const formattedHour = hour % 12 || 12;
+        const time = formattedHour + ":" + minute + " " + " " + period;
+        setTime(time);
+      };
+
+      getCurrentTime();
+      const interval = setInterval(getCurrentTime, 1000);
+      return () => clearInterval(interval);
     });
-  }, [userCity]);
+  }, []);
+
+  const updateUserCity = (city) => {
+    setUserCity(city);
+  };
 
   return (
     <Context.Provider
@@ -32,6 +50,8 @@ export const GlobalProvider = (props) => {
         userCountry,
         flag,
         status,
+        updateUserCity,
+        time,
       }}
     >
       {props.children}
